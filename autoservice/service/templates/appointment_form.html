@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Запись на обслуживание - Автоэмали{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Запись на обслуживание</h2>
+    </div>
+    <div class="card-body">
+        <h4>Услуга: {{ service.name }}</h4>
+        <p>Цена: {{ service.price }} руб.</p>
+        <p>Длительность: {{ service.duration }} мин.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Записаться</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

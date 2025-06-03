@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Услуги автосервиса{% endblock %}
+
+{% block content %}
+<h1>Наши услуги</h1>
+<p class="lead">Выберите интересующую вас услугу для получения подробной информации.</p>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+    {% for service in services %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ service.name }}</h5>
+                <p class="card-text">{{ service.description|truncatewords:20 }}</p>
+                <p class="card-text"><strong>Цена:</strong> {{ service.price }} руб.</p>
+                <!-- <p class="card-text"><strong>Длительность:</strong> {{ service.duration }} мин.</p> -->
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'service_detail' service.pk %}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">
+            В настоящее время услуги не добавлены. Пожалуйста, проверьте позже.
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - АвтоСервис{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Добро пожаловать в Автоэмали!</h1>
+    <p class="lead">Мы предоставляем качественные услуги по ремонту и обслуживанию автомобилей.</p>
+    <hr class="my-4">
+    <p>У нас работают квалифицированные специалисты, которые быстро и качественно решат любые проблемы с вашим автомобилем.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'service_list' %}" role="button">Наши услуги</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Наши услуги</h5>
+                <p class="card-text">Мы предлагаем широкий спектр услуг по ремонту и обслуживанию автомобилей.</p>
+                <p class="card-text"><strong>Количество услуг: {{ services_count }}</strong></p>
+                <a href="{% url 'service_list' %}" class="btn btn-sm btn-outline-primary">Посмотреть услуги</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Записаться на обслуживание</h5>
+                <p class="card-text">Выберите услугу и удобное для вас время, и мы выполним работу быстро и качественно.</p>
+                <a href="{% url 'service_list' %}" class="btn btn-sm btn-outline-primary">Записаться</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Свяжитесь с нами</h5>
+                <p class="card-text">У вас есть вопросы? Свяжитесь с нами, и мы с удовольствием ответим на все ваши вопросы.</p>
+                <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+                <p><strong>Email:</strong> info@autoservice.ru</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
